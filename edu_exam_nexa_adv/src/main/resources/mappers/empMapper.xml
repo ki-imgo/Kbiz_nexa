@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="empMng" >
+	 <select id="selectEmpList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT 
+				ENAME,
+				COMM,
+				HIREDATE,
+				EMPNO,
+				MGR,
+				JOB,
+				DEPTNO,
+				SAL
+			FROM EMP
+			WHERE 1 = 1
+		]]>		
+		<if test="empNo != null and empNo != ''">	
+			<![CDATA[
+				AND EMPNO = #{empNo}
+			]]>		
+		</if>
+		<if test="deptNo != null and deptNo != ''">	
+			<![CDATA[
+				AND DEPTNO = #{deptNo}
+			]]>		
+		</if>
+    </select>
+    
+<!-- 	<insert id="insertBoard" parameterType="hashmap"> -->
+<!-- 		INSERT INTO -->
+<!-- 		    BOARD_NEXACRO -->
+<!-- 		    ( -->
+<!-- 		        BOARD_NO, -->
+<!-- 		        SUBJECT, -->
+<!-- 		        WRITER, -->
+<!-- 		        CONTENT, -->
+<!-- 		        REG_DATE, -->
+<!-- 		        SECRET_YN -->
+<!-- 		    ) -->
+<!-- 		VALUES -->
+<!-- 		    ( -->
+<!-- 		    	BOARD_NEXACRO_SEQ.NEXTVAL, -->
+<!-- 		    	#{subject}, -->
+<!-- 		    	#{writer}, -->
+<!-- 		    	#{content}, -->
+<!-- 		    	DEFAULT, -->
+<!-- 		    	#{secret_yn} -->
+<!-- 		    ) -->
+<!-- 	</insert> -->
+	
+<!-- 	<select id="selectEmpList" parameterType="hashmap" resultType="hashmap"> -->
+<!-- 		select -->
+<!-- 		    BOARD_NO, -->
+<!-- 		    SUBJECT, -->
+<!-- 		    WRITER, -->
+<!-- 		    CONTENT, -->
+<!-- 		    TO_CHAR(TO_DATE(REG_DATE,'YYYYMMDDHHMI'),'YYYY-MM-DD HH24:MI') AS REG_DATE, -->
+<!-- 		    SECRET_YN -->
+<!-- 		from -->
+<!-- 		    BOARD_NEXACRO -->
+<!-- 		<trim prefix="WHERE" prefixOverrides="AND"> -->
+<!-- 			<if test="board_no != null and board_no != ''"> -->
+<!-- 				AND BOARD_NO = #{board_no} -->
+<!-- 			</if> -->
+<!-- 			<if test="subject != null and subject != '' and subject != 'undefined'  "> -->
+<!-- 				AND SUBJECT = #{subject} -->
+<!-- 			</if> -->
+<!-- 			<if test="content != null and content != '' and content != 'undefined'  "> -->
+<!-- 				AND CONTENT = #{content} -->
+<!-- 			</if> -->
+<!-- 			<if test="writer != null and writer != '' and writer != 'undefined'  "> -->
+<!-- 				AND WRITER = #{writer} -->
+<!-- 			</if> -->
+<!-- 			<if test="reg_date != null and reg_date != '' and reg_date != 'undefined'  "> -->
+<!-- 				AND REG_DATE = #{reg_date} -->
+<!-- 			</if> -->
+<!-- 			<if test="secret_yn != null and secret_yn != '' and secret_yn != 'undefined'  "> -->
+<!-- 				AND SECRET_YN = #{secret_yn} -->
+<!-- 			</if> -->
+			
+<!-- 		</trim> -->
+<!-- 			ORDER BY BOARD_NO -->
+<!-- 	</select> -->
+	
+	
+<!-- 	<delete id="deleteBoard" parameterType="hashmap"> -->
+<!-- 		DELETE FROM BOARD_NEXACRO -->
+<!-- 	</delete> -->
+	
+<!-- 	<update id="updateBoard" parameterType="hashmap"> -->
+<!-- 		UPDATE  -->
+<!-- 		BOARD_NEXACRO -->
+<!-- 		SET CONTENT=#{content} -->
+<!-- 		WHERE BOARD_NO=${board_no} -->
+<!-- 	</update> -->
+</mapper>
